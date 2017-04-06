@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"firebase-tools",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "firebase-tools",
+    "description": "api documentation for [firebase-tools (v3.6.0)](https://github.com/firebase/firebase-tools) [![npm package](https://img.shields.io/npm/v/npmdoc-firebase-tools.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-firebase-tools) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-firebase-tools.svg)](https://travis-ci.org/npmdoc/node-npmdoc-firebase-tools)",
     "devDependencies": {
-        "firebase-tools": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "firebase-tools": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-firebase-tools",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-firebase-tools",
+    "keywords": [
+        "documentation",
+        "firebase-tools"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_firebase_tools.js",
+    "name": "npmdoc-firebase-tools",
+    "nameAlias": "npmdoc_firebase_tools",
+    "nameOriginal": "npmdoc-firebase-tools",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-firebase-tools"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
