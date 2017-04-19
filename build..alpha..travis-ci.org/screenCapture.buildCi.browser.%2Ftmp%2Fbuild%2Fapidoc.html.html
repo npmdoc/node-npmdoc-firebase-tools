@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/firebase/firebase-tools"
-
-    >firebase-tools (v3.6.1)</a>
+    <a href="https://github.com/firebase/firebase-tools">firebase-tools (v3.6.1)</a>
 </h1>
 <h4>Command-Line Interface for Firebase</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.firebase-tools">module firebase-tools</a><ol>
 
@@ -609,18 +602,18 @@
 
   if (this._src.firebase) {
     this.defaults.project = this._src.firebase;
-    utils.logWarning(chalk.bold(&#x27;&#x22;firebase&#x22;&#x27;) + &#x27; key in firebase.json is deprecated. Run &#x27; + chalk.bold(&#x27;firebase use --add&#x27;) + &#x27;
-instead&#x27;);
+    utils.logWarning(chalk.bold('"firebase"') + ' key in firebase.json is deprecated. Run ' + chalk.bold('firebase use --add') + '
+instead');
   }
 
-  if (_.has(this._src, &#x27;rules&#x27;)) {
-    _.set(this._src, &#x27;database.rules&#x27;, this._src.rules);
+  if (_.has(this._src, 'rules')) {
+    _.set(this._src, 'database.rules', this._src.rules);
   }
 
   Config.MATERIALIZE_TARGETS.forEach(function(target) {
     if (_.get(this._src, target)) {
-      if (target === &#x27;database.rules&#x27;) {
-        _.set(this.data, &#x27;database.rulesString&#x27;, this._materialize(target));
+      if (target === 'database.rules') {
+        _.set(this.data, 'database.rulesString', this._materialize(target));
       } else {
         _.set(this.data, target, this._materialize(target));
       }
@@ -628,12 +621,12 @@ instead&#x27;);
   }, this);
 
   // auto-detect functions from package.json in directory
-  if (this.projectDir &#x26;&#x26; !this.get(&#x27;functions.source&#x27;) &#x26;&#x26; fsutils.fileExistsSync(this.path(&#x27;functions/package.json&#x27;))) {
-    this.set(&#x27;functions.source&#x27;, &#x27;functions&#x27;);
+  if (this.projectDir &amp;&amp; !this.get('functions.source') &amp;&amp; fsutils.fileExistsSync(this.path('functions/package.json'))) {
+    this.set('functions.source', 'functions');
   }
 
-  // use &#x27;public&#x27; as signal for legacy hosting since it&#x27;s a required key
-  if (!this.data.hosting &#x26;&#x26; this._src.public) {
+  // use 'public' as signal for legacy hosting since it's a required key
+  if (!this.data.hosting &amp;&amp; this._src.public) {
     this.importLegacyHostingKeys();
   }
 }</pre></li>
@@ -652,15 +645,15 @@ instead&#x27;);
     <li>description and source-code<pre class="apidocCodePre">prompt = function (options, questions) {
   return new RSVP.Promise(function(resolve, reject) {
     var prompts = [];
-    for (var i = 0; i &#x3c; questions.length; i++) {
+    for (var i = 0; i &lt; questions.length; i++) {
       if (!options[questions[i].name]) {
         prompts.push(questions[i]);
       }
     }
 
-    if (prompts.length &#x26;&#x26; options.nonInteractive) {
-      return reject(new FirebaseError(&#x27;Missing required options (&#x27; + _.uniq(_.map(prompts, &#x27;name&#x27;)).join(&#x27;, &#x27;) + &#x27;) while running
- in non-interactive mode&#x27;, {
+    if (prompts.length &amp;&amp; options.nonInteractive) {
+      return reject(new FirebaseError('Missing required options (' + _.uniq(_.map(prompts, 'name')).join(', ') + ') while running
+ in non-interactive mode', {
         children: prompts,
         exit: 1
       }));
@@ -675,9 +668,9 @@ instead&#x27;);
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    if (prompts.length &#x26;&#x26; options.nonInteractive) {
-      return reject(new FirebaseError(&#x27;Missing required options (&#x27; + _.uniq(_.map(prompts, &#x27;name&#x27;)).join(&#x27
-;, &#x27;) + &#x27;) while running in non-interactive mode&#x27;, {
+    if (prompts.length &amp;&amp; options.nonInteractive) {
+      return reject(new FirebaseError('Missing required options (' + _.uniq(_.map(prompts, 'name')).join('
+;, ') + ') while running in non-interactive mode', {
         children: prompts,
         exit: 1
       }));
@@ -727,18 +720,18 @@ instead&#x27;);
 
   if (this._src.firebase) {
     this.defaults.project = this._src.firebase;
-    utils.logWarning(chalk.bold(&#x27;&#x22;firebase&#x22;&#x27;) + &#x27; key in firebase.json is deprecated. Run &#x27; + chalk.bold(&#x27;firebase use --add&#x27;) + &#x27;
-instead&#x27;);
+    utils.logWarning(chalk.bold('"firebase"') + ' key in firebase.json is deprecated. Run ' + chalk.bold('firebase use --add') + '
+instead');
   }
 
-  if (_.has(this._src, &#x27;rules&#x27;)) {
-    _.set(this._src, &#x27;database.rules&#x27;, this._src.rules);
+  if (_.has(this._src, 'rules')) {
+    _.set(this._src, 'database.rules', this._src.rules);
   }
 
   Config.MATERIALIZE_TARGETS.forEach(function(target) {
     if (_.get(this._src, target)) {
-      if (target === &#x27;database.rules&#x27;) {
-        _.set(this.data, &#x27;database.rulesString&#x27;, this._materialize(target));
+      if (target === 'database.rules') {
+        _.set(this.data, 'database.rulesString', this._materialize(target));
       } else {
         _.set(this.data, target, this._materialize(target));
       }
@@ -746,12 +739,12 @@ instead&#x27;);
   }, this);
 
   // auto-detect functions from package.json in directory
-  if (this.projectDir &#x26;&#x26; !this.get(&#x27;functions.source&#x27;) &#x26;&#x26; fsutils.fileExistsSync(this.path(&#x27;functions/package.json&#x27;))) {
-    this.set(&#x27;functions.source&#x27;, &#x27;functions&#x27;);
+  if (this.projectDir &amp;&amp; !this.get('functions.source') &amp;&amp; fsutils.fileExistsSync(this.path('functions/package.json'))) {
+    this.set('functions.source', 'functions');
   }
 
-  // use &#x27;public&#x27; as signal for legacy hosting since it&#x27;s a required key
-  if (!this.data.hosting &#x26;&#x26; this._src.public) {
+  // use 'public' as signal for legacy hosting since it's a required key
+  if (!this.data.hosting &amp;&amp; this._src.public) {
     this.importLegacyHostingKeys();
   }
 }</pre></li>
@@ -774,7 +767,7 @@ instead&#x27;);
       var data = cjson.load(path.join(pd, Config.FILENAME));
       return new Config(data, options);
     } catch (e) {
-      throw new FirebaseError(&#x27;There was an error loading firebase.json:\n\n&#x27; + e.message, {
+      throw new FirebaseError('There was an error loading firebase.json:\n\n' + e.message, {
         exit: 1
       });
     }
@@ -784,14 +777,14 @@ instead&#x27;);
     return null;
   }
 
-  throw new FirebaseError(&#x27;Not in a Firebase app directory (could not locate firebase.json)&#x27;, {exit: 1});
+  throw new FirebaseError('Not in a Firebase app directory (could not locate firebase.json)', {exit: 1});
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 if (_isOutside(homeDir, cwd)) {
-  warnings.push(&#x27;You are currently outside your home directory&#x27;);
+  warnings.push('You are currently outside your home directory');
 }
 if (cwd === homeDir) {
-  warnings.push(&#x27;You are initializing your home directory as a Firebase project&#x27;);
+  warnings.push('You are initializing your home directory as a Firebase project');
 }
 
 var config = Config.<span class="apidocCodeKeywordSpan">load</span>(options, true);
@@ -799,7 +792,7 @@ var existingConfig = !!config;
 if (!existingConfig) {
   config = new Config({}, {projectDir: cwd, cwd: cwd});
 } else {
-  warnings.push(&#x27;You are initializing in an existing Firebase project directory&#x27;);
+  warnings.push('You are initializing in an existing Firebase project directory');
 }
 ...</pre></li>
     </ul>
@@ -830,7 +823,7 @@ if (!existingConfig) {
   }
 
   for (var k in obj) {
-    if (_.isPlainObject(obj[k]) &#x26;&#x26; this._hasDeepKey(obj[k], key)) {
+    if (_.isPlainObject(obj[k]) &amp;&amp; this._hasDeepKey(obj[k], key)) {
       return true;
     }
   }
@@ -844,7 +837,7 @@ Config.prototype._hasDeepKey = function(obj, key) {
   }
 
   for (var k in obj) {
-    if (_.isPlainObject(obj[k]) &#x26;&#x26; this.<span class="apidocCodeKeywordSpan">_hasDeepKey</span>(obj[k], key)) {
+    if (_.isPlainObject(obj[k]) &amp;&amp; this.<span class="apidocCodeKeywordSpan">_hasDeepKey</span>(obj[k], key)) {
       return true;
     }
   }
@@ -868,31 +861,31 @@ Config.prototype._materialize = function(target) {
   var val = _.get(this._src, target);
   if (_.isString(val)) {
     var out = this._parseFile(target, val);
-    // if e.g. rules.json has {&#x22;rules&#x22;: {}} use that
-    var lastSegment = _.last(target.split(&#x27;.&#x27;));
-    if (_.size(out) === 1 &#x26;&#x26; _.has(out, lastSegment)) {
+    // if e.g. rules.json has {"rules": {}} use that
+    var lastSegment = _.last(target.split('.'));
+    if (_.size(out) === 1 &amp;&amp; _.has(out, lastSegment)) {
       out = out[lastSegment];
     }
     return out;
   } else if (_.isObject(val)) {
-    if (target === &#x27;database.rules&#x27;) {
-      this.notes.databaseRules = &#x27;inline&#x27;;
-      return JSON.stringify({ &#x27;rules&#x27;: val }, null, 2);
+    if (target === 'database.rules') {
+      this.notes.databaseRules = 'inline';
+      return JSON.stringify({ 'rules': val }, null, 2);
     }
     return val;
   }
 
-  throw new FirebaseError(&#x27;Parse Error: &#x22;&#x27; + target + &#x27;&#x22; must be object or import path&#x27;, {exit: 1});
+  throw new FirebaseError('Parse Error: "' + target + '" must be object or import path', {exit: 1});
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-if (_.has(this._src, &#x27;rules&#x27;)) {
-  _.set(this._src, &#x27;database.rules&#x27;, this._src.rules);
+if (_.has(this._src, 'rules')) {
+  _.set(this._src, 'database.rules', this._src.rules);
 }
 
 Config.MATERIALIZE_TARGETS.forEach(function(target) {
   if (_.get(this._src, target)) {
-    if (target === &#x27;database.rules&#x27;) {
-      _.set(this.data, &#x27;database.rulesString&#x27;, this.<span class="apidocCodeKeywordSpan">_materialize</span>(target));
+    if (target === 'database.rules') {
+      _.set(this.data, 'database.rulesString', this.<span class="apidocCodeKeywordSpan">_materialize</span>(target));
     } else {
       _.set(this.data, target, this._materialize(target));
     }
@@ -916,32 +909,32 @@ Config.MATERIALIZE_TARGETS.forEach(function(target) {
   var fullPath = resolveProjectPath(this.options.cwd, filePath);
   var ext = path.extname(filePath);
   if (!fsutils.fileExistsSync(fullPath)) {
-    throw new FirebaseError(&#x27;Parse Error: Imported file &#x27; + filePath + &#x27; does not exist&#x27;, {exit: 1});
+    throw new FirebaseError('Parse Error: Imported file ' + filePath + ' does not exist', {exit: 1});
   }
 
   switch (ext) {
-  case &#x27;.json&#x27;:
-    if (target === &#x27;database&#x27;) {
-      this.notes.databaseRules = &#x27;json&#x27;;
-    } else if (target === &#x27;database.rules&#x27;) {
-      var rules = fs.readFileSync(fullPath, &#x27;utf8&#x27;);
+  case '.json':
+    if (target === 'database') {
+      this.notes.databaseRules = 'json';
+    } else if (target === 'database.rules') {
+      var rules = fs.readFileSync(fullPath, 'utf8');
       if (validateJsonRules(rules)) {
         return rules;
       }
-      utils.logWarning(chalk.bold.yellow(&#x27;database: &#x27;) + chalk.bold(filePath) + &#x27; must have an outer &#x27; + chalk.bold(&#x27;rules&#x27;) + &#x27;
-key, for example:&#x27;);
-      logger.warn(&#x27;\n{\n\t&#x22;rules&#x22;: {&#x22;.read&#x22;: false, &#x22;.write&#x22;: false}\n}&#x27;);
-      throw new FirebaseError(&#x27;Database security rules are not correctly formatted&#x27;, {exit: 1});
+      utils.logWarning(chalk.bold.yellow('database: ') + chalk.bold(filePath) + ' must have an outer ' + chalk.bold('rules') + '
+key, for example:');
+      logger.warn('\n{\n\t"rules": {".read": false, ".write": false}\n}');
+      throw new FirebaseError('Database security rules are not correctly formatted', {exit: 1});
     }
     return loadCJSON(fullPath);
 <span class="apidocCodeCommentSpan">  /* istanbul ignore-next */
-</span>  case &#x27;.bolt&#x27;:
-    if (target === &#x27;database&#x27;) {
-      this.notes.databaseRules = &#x27;bolt&#x27;;
+</span>  case '.bolt':
+    if (target === 'database') {
+      this.notes.databaseRules = 'bolt';
     }
     return parseBoltRules(fullPath);
   default:
-    throw new FirebaseError(&#x27;Parse Error: &#x27; + filePath + &#x27; is not of a supported config file type&#x27;, {exit: 1});
+    throw new FirebaseError('Parse Error: ' + filePath + ' is not of a supported config file type', {exit: 1});
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -953,9 +946,9 @@ Config.prototype._materialize = function(target) {
 var val = _.get(this._src, target);
 if (_.isString(val)) {
   var out = this.<span class="apidocCodeKeywordSpan">_parseFile</span>(target, val);
-  // if e.g. rules.json has {&#x22;rules&#x22;: {}} use that
-  var lastSegment = _.last(target.split(&#x27;.&#x27;));
-  if (_.size(out) === 1 &#x26;&#x26; _.has(out, lastSegment)) {
+  // if e.g. rules.json has {"rules": {}} use that
+  var lastSegment = _.last(target.split('.'));
+  if (_.size(out) === 1 &amp;&amp; _.has(out, lastSegment)) {
     out = out[lastSegment];
   }
   return out;
@@ -977,8 +970,8 @@ if (_.isString(val)) {
   var next;
   if (fsutils.fileExistsSync(writeTo)) {
     next = prompt.once({
-      type: &#x27;confirm&#x27;,
-      message: &#x27;File &#x27; + chalk.underline(p) + &#x27; already exists. Overwrite?&#x27;,
+      type: 'confirm',
+      message: 'File ' + chalk.underline(p) + ' already exists. Overwrite?',
       default: false
     });
   } else {
@@ -989,9 +982,9 @@ if (_.isString(val)) {
   return next.then(function(result) {
     if (result) {
       self.writeProjectFile(p, content);
-      utils.logSuccess(&#x27;Wrote &#x27; + chalk.bold(p));
+      utils.logSuccess('Wrote ' + chalk.bold(p));
     } else {
-      utils.logBullet(&#x27;Skipping write of &#x27; + chalk.bold(p));
+      utils.logBullet('Skipping write of ' + chalk.bold(p));
     }
   });
 }</pre></li>
@@ -1015,17 +1008,17 @@ if (_.isString(val)) {
 var fileOut = !!options.output;
 var outStream = fileOut ? fs.createWriteStream(options.output) : process.stdout;
 var erroring;
-var errorResponse = &#x27;&#x27;;
+var errorResponse = '';
 var response;
 
 request.<span class="apidocCodeKeywordSpan">get</span>(reqOptionsWithToken)
-  .on(&#x27;response&#x27;, function(res) {
+  .on('response', function(res) {
     response = res;
-    if (response.statusCode &#x3e;= 400) {
+    if (response.statusCode &gt;= 400) {
       erroring = true;
     }
   })
-  .on(&#x27;data&#x27;, function(chunk) {
+  .on('data', function(chunk) {
 ...</pre></li>
     </ul>
 
@@ -1045,14 +1038,14 @@ request.<span class="apidocCodeKeywordSpan">get</span>(reqOptionsWithToken)
 .before(requireAccess)
 .action(function(options) {
   // Validate options
-  if (options.raw &#x26;&#x26; options.input) {
-    return utils.reject(&#x27;Cannot specify both an input file and raw format&#x27;, {exit: 1});
-  } else if (options.parent.json &#x26;&#x26; options.raw) {
-    return utils.reject(&#x27;Cannot output raw data in json format&#x27;, {exit: 1});
-  } else if (options.input &#x26;&#x26; _.<span class="apidocCodeKeywordSpan">has</span>(options, &#x27;duration&#x27;)) {
-    return utils.reject(&#x27;Cannot specify a duration for input files&#x27;, {exit: 1});
-  } else if (_.has(options, &#x27;duration&#x27;) &#x26;&#x26; options.duration &#x3c;= 0) {
-    return utils.reject(&#x27;Must specify a positive number of seconds&#x27;, {exit: 1});
+  if (options.raw &amp;&amp; options.input) {
+    return utils.reject('Cannot specify both an input file and raw format', {exit: 1});
+  } else if (options.parent.json &amp;&amp; options.raw) {
+    return utils.reject('Cannot output raw data in json format', {exit: 1});
+  } else if (options.input &amp;&amp; _.<span class="apidocCodeKeywordSpan">has</span>(options, 'duration')) {
+    return utils.reject('Cannot specify a duration for input files', {exit: 1});
+  } else if (_.has(options, 'duration') &amp;&amp; options.duration &lt;= 0) {
+    return utils.reject('Must specify a positive number of seconds', {exit: 1});
   }
 
   return profiler(options);
@@ -1074,30 +1067,30 @@ request.<span class="apidocCodeKeywordSpan">get</span>(reqOptionsWithToken)
   Config.LEGACY_HOSTING_KEYS.forEach(function(key) {
     if (_.has(this._src, key)) {
       found = true;
-      this.set(&#x27;hosting.&#x27; + key, this._src[key]);
+      this.set('hosting.' + key, this._src[key]);
     }
   }, this);
   if (found) {
-    utils.logWarning(&#x27;Deprecation Warning: Firebase Hosting configuration should be moved under &#x22;hosting&#x22; key.&#x27;);
+    utils.logWarning('Deprecation Warning: Firebase Hosting configuration should be moved under "hosting" key.');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   // auto-detect functions from package.json in directory
-  if (this.projectDir &#x26;&#x26; !this.get(&#x27;functions.source&#x27;) &#x26;&#x26; fsutils.fileExistsSync(this.path(&#x27;functions
-/package.json&#x27;))) {
-    this.set(&#x27;functions.source&#x27;, &#x27;functions&#x27;);
+  if (this.projectDir &amp;&amp; !this.get('functions.source') &amp;&amp; fsutils.fileExistsSync(this.path('functions
+/package.json'))) {
+    this.set('functions.source', 'functions');
   }
 
-  // use &#x27;public&#x27; as signal for legacy hosting since it&#x27;s a required key
-  if (!this.data.hosting &#x26;&#x26; this._src.public) {
+  // use 'public' as signal for legacy hosting since it's a required key
+  if (!this.data.hosting &amp;&amp; this._src.public) {
     this.<span class="apidocCodeKeywordSpan">importLegacyHostingKeys</span>();
   }
 };
 
-Config.FILENAME = &#x27;firebase.json&#x27;;
-Config.MATERIALIZE_TARGETS = [&#x27;functions&#x27;, &#x27;hosting&#x27;, &#x27;database.rules&#x27;, &#x27;storage&#x27;];
-Config.LEGACY_HOSTING_KEYS = [&#x27;public&#x27;, &#x27;rewrites&#x27;, &#x27;redirects&#x27;, &#x27;headers&#x27;, &#x27;ignore
-&#x27;, &#x27;cleanUrls&#x27;, &#x27;trailingSlash&#x27;];
+Config.FILENAME = 'firebase.json';
+Config.MATERIALIZE_TARGETS = ['functions', 'hosting', 'database.rules', 'storage'];
+Config.LEGACY_HOSTING_KEYS = ['public', 'rewrites', 'redirects', 'headers', 'ignore
+', 'cleanUrls', 'trailingSlash'];
 ...</pre></li>
     </ul>
 
@@ -1112,8 +1105,8 @@ Config.LEGACY_HOSTING_KEYS = [&#x27;public&#x27;, &#x27;rewrites&#x27;, &#x27;re
     <ul>
     <li>description and source-code<pre class="apidocCodePre">path = function (pathName) {
   var outPath = path.normalize(path.join(this.projectDir, pathName));
-  if (_.includes(path.relative(this.projectDir, outPath), &#x27;..&#x27;)) {
-    throw new FirebaseError(chalk.bold(pathName) + &#x27; is outside of project directory&#x27;, {exit: 1});
+  if (_.includes(path.relative(this.projectDir, outPath), '..')) {
+    throw new FirebaseError(chalk.bold(pathName) + ' is outside of project directory', {exit: 1});
   }
   return outPath;
 }</pre></li>
@@ -1125,13 +1118,13 @@ Config.LEGACY_HOSTING_KEYS = [&#x27;public&#x27;, &#x27;rewrites&#x27;, &#x27;re
 }, this);
 
 // auto-detect functions from package.json in directory
-if (this.projectDir &#x26;&#x26; !this.get(&#x27;functions.source&#x27;) &#x26;&#x26; fsutils.fileExistsSync(this.<span class="apidocCodeKeywordSpan
-">path</span>(&#x27;functions/package.json&#x27;))) {
-  this.set(&#x27;functions.source&#x27;, &#x27;functions&#x27;);
+if (this.projectDir &amp;&amp; !this.get('functions.source') &amp;&amp; fsutils.fileExistsSync(this.<span class="apidocCodeKeywordSpan
+">path</span>('functions/package.json'))) {
+  this.set('functions.source', 'functions');
 }
 
-// use &#x27;public&#x27; as signal for legacy hosting since it&#x27;s a required key
-if (!this.data.hosting &#x26;&#x26; this._src.public) {
+// use 'public' as signal for legacy hosting since it's a required key
+if (!this.data.hosting &amp;&amp; this._src.public) {
   this.importLegacyHostingKeys();
 }
 ...</pre></li>
@@ -1148,7 +1141,7 @@ if (!this.data.hosting &#x26;&#x26; this._src.public) {
     <ul>
     <li>description and source-code<pre class="apidocCodePre">readProjectFile = function (p, options) {
   try {
-    var content = fs.readFileSync(this.path(p), &#x27;utf8&#x27;);
+    var content = fs.readFileSync(this.path(p), 'utf8');
     if (options.json) {
       return JSON.parse(content);
     }
@@ -1162,21 +1155,21 @@ if (!this.data.hosting &#x26;&#x26; this._src.public) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 logger.info(chalk.yellow.bold(BANNER_TEXT) +
-  &#x27;\nYou\&#x27;re about to initialize a Firebase project in this directory:\n\n  &#x27; + chalk.bold(config.projectDir) + &#
-x27;\n&#x27; +
+  '\nYou\'re about to initialize a Firebase project in this directory:\n\n  ' + chalk.bold(config.projectDir) + &amp;#
+x27;\n' +
   warningText
 );
 
 var setup = {
   config: config._src,
-  rcfile: config.<span class="apidocCodeKeywordSpan">readProjectFile</span>(&#x27;.firebaserc&#x27;, {
+  rcfile: config.<span class="apidocCodeKeywordSpan">readProjectFile</span>('.firebaserc', {
     json: true,
     fallback: {}
   })
 };
 
 var choices = [
-  {name: &#x27;database&#x27;, label: &#x27;Database: Deploy Firebase Realtime Database Rules&#x27;, checked: true},
+  {name: 'database', label: 'Database: Deploy Firebase Realtime Database Rules', checked: true},
 ...</pre></li>
     </ul>
 
@@ -1196,17 +1189,17 @@ var choices = [
 }
 
 return prompt(options, [{
-  type: &#x27;confirm&#x27;,
-  name: &#x27;collectUsage&#x27;,
-  message: &#x27;Allow Firebase to collect anonymous CLI usage information?&#x27;
+  type: 'confirm',
+  name: 'collectUsage',
+  message: 'Allow Firebase to collect anonymous CLI usage information?'
 }]).then(function() {
-  configstore.<span class="apidocCodeKeywordSpan">set</span>(&#x27;usage&#x27;, options.collectUsage);
+  configstore.<span class="apidocCodeKeywordSpan">set</span>('usage', options.collectUsage);
   return auth.login(options.localhost);
 }).then(function(result) {
-  configstore.set(&#x27;user&#x27;, result.user);
-  configstore.set(&#x27;tokens&#x27;, result.tokens);
+  configstore.set('user', result.user);
+  configstore.set('tokens', result.tokens);
   // store login scopes in case mandatory scopes grow over time
-  configstore.set(&#x27;loginScopes&#x27;, result.scopes);
+  configstore.set('loginScopes', result.scopes);
   // remove old session token, if it exists
 ...</pre></li>
     </ul>
@@ -1221,26 +1214,26 @@ return prompt(options, [{
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">writeProjectFile = function (p, content) {
-  if (typeof content !== &#x27;string&#x27;) {
-    content = JSON.stringify(content, null, 2) + &#x27;\n&#x27;;
+  if (typeof content !== 'string') {
+    content = JSON.stringify(content, null, 2) + '\n';
   }
 
   fs.ensureFileSync(this.path(p));
-  fs.writeFileSync(this.path(p), content, &#x27;utf8&#x27;);
+  fs.writeFileSync(this.path(p), content, 'utf8');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   });
 }
-setup.features.unshift(&#x27;project&#x27;);
+setup.features.unshift('project');
 return init(setup, config, options);
     }).then(function() {
 logger.info();
-utils.logBullet(&#x27;Writing configuration info to &#x27; + chalk.bold(&#x27;firebase.json&#x27;) + &#x27;...&#x27;);
-config.<span class="apidocCodeKeywordSpan">writeProjectFile</span>(&#x27;firebase.json&#x27;, setup.config);
-utils.logBullet(&#x27;Writing project information to &#x27; + chalk.bold(&#x27;.firebaserc&#x27;) + &#x27;...&#x27;);
-config.writeProjectFile(&#x27;.firebaserc&#x27;, setup.rcfile);
+utils.logBullet('Writing configuration info to ' + chalk.bold('firebase.json') + '...');
+config.<span class="apidocCodeKeywordSpan">writeProjectFile</span>('firebase.json', setup.config);
+utils.logBullet('Writing project information to ' + chalk.bold('.firebaserc') + '...');
+config.writeProjectFile('.firebaserc', setup.rcfile);
 logger.info();
-utils.logSuccess(&#x27;Firebase initialization complete!&#x27;);
+utils.logSuccess('Firebase initialization complete!');
 
 if (setup.createProject) {
   logger.info();
@@ -1297,13 +1290,13 @@ if (setup.createProject) {
 }, this);
 
 // auto-detect functions from package.json in directory
-if (this.projectDir &#x26;&#x26; !this.get(&#x27;functions.source&#x27;) &#x26;&#x26; fsutils.<span class="apidocCodeKeywordSpan
-">fileExistsSync</span>(this.path(&#x27;functions/package.json&#x27;))) {
-  this.set(&#x27;functions.source&#x27;, &#x27;functions&#x27;);
+if (this.projectDir &amp;&amp; !this.get('functions.source') &amp;&amp; fsutils.<span class="apidocCodeKeywordSpan
+">fileExistsSync</span>(this.path('functions/package.json'))) {
+  this.set('functions.source', 'functions');
 }
 
-// use &#x27;public&#x27; as signal for legacy hosting since it&#x27;s a required key
-if (!this.data.hosting &#x26;&#x26; this._src.public) {
+// use 'public' as signal for legacy hosting since it's a required key
+if (!this.data.hosting &amp;&amp; this._src.public) {
   this.importLegacyHostingKeys();
 }
 ...</pre></li>
@@ -1337,18 +1330,18 @@ if (!this.data.hosting &#x26;&#x26; this._src.public) {
   target.log.apply(target, args);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var responseToError = require(&#x27;./responseToError&#x27;);
+var responseToError = require('./responseToError');
 var refreshToken;
 var commandScopes;
-var scopes = require(&#x27;./scopes&#x27;);
-var CLI_VERSION = require(&#x27;../package.json&#x27;).version;
+var scopes = require('./scopes');
+var CLI_VERSION = require('../package.json').version;
 
 var _request = function(options) {
-logger.<span class="apidocCodeKeywordSpan">debug</span>(&#x27;&#x3e;&#x3e;&#x3e; HTTP REQUEST&#x27;,
+logger.<span class="apidocCodeKeywordSpan">debug</span>('&gt;&gt;&gt; HTTP REQUEST',
   options.method,
   options.url,
-  options.body || options.form || &#x27;&#x27;,
-  &#x27;\n&#x27;,
+  options.body || options.form || '',
+  '\n',
   new Date().toString()
 );
 ...</pre></li>
@@ -1369,22 +1362,22 @@ logger.<span class="apidocCodeKeywordSpan">debug</span>(&#x27;&#x3e;&#x3e;&#x3e;
   target.log.apply(target, args);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-&#x27;data:update&#x27;: &#x27;database:update&#x27;,
-&#x27;deploy:hosting&#x27;: &#x27;deploy --only hosting&#x27;,
-&#x27;deploy:database&#x27;: &#x27;deploy --only database&#x27;,
-&#x27;prefs:token&#x27;: &#x27;login:ci&#x27;
+'data:update': 'database:update',
+'deploy:hosting': 'deploy --only hosting',
+'deploy:database': 'deploy --only database',
+'prefs:token': 'login:ci'
 };
 
 program.action(function(cmd, cmd2) {
 logger.<span class="apidocCodeKeywordSpan">error</span>(
-  chalk.bold.red(&#x27;Error:&#x27;),
-  chalk.bold(cmd), &#x27;is not a Firebase command&#x27;
+  chalk.bold.red('Error:'),
+  chalk.bold(cmd), 'is not a Firebase command'
 );
 
 if (RENAMED_COMMANDS[cmd]) {
   logger.error();
-  logger.error(chalk.bold(cmd) + &#x27; has been renamed, please run&#x27;, chalk.bold(&#x27;firebase &#x27; + RENAMED_COMMANDS[
-cmd]), &#x27;instead&#x27;);
+  logger.error(chalk.bold(cmd) + ' has been renamed, please run', chalk.bold('firebase ' + RENAMED_COMMANDS[
+cmd]), 'instead');
 ...</pre></li>
     </ul>
 
@@ -1405,15 +1398,15 @@ cmd]), &#x27;instead&#x27;);
     <li>example usage<pre class="apidocCodePre">...
   var exportOptions = checkRes;
   var writeStream = fs.createWriteStream(dataFile);
-  if (exportOptions.format === &#x27;json&#x27;) {
-    writeStream.write(&#x27;{&#x22;users&#x22;: [&#x27; + os.EOL);
+  if (exportOptions.format === 'json') {
+    writeStream.write('{"users": [' + os.EOL);
   }
   exportOptions.writeStream = writeStream;
   exportOptions.batchSize = MAX_BATCH_SIZE;
-  logger.<span class="apidocCodeKeywordSpan">info</span>(&#x27;Exporting accounts to &#x27; + chalk.bold(dataFile));
+  logger.<span class="apidocCodeKeywordSpan">info</span>('Exporting accounts to ' + chalk.bold(dataFile));
   return serialExportUsers(projectId, exportOptions).then(function() {
-    if (exportOptions.format === &#x27;json&#x27;) {
-      writeStream.write(&#x27;]}&#x27;);
+    if (exportOptions.format === 'json') {
+      writeStream.write(']}');
     }
     writeStream.end();
   });
@@ -1432,7 +1425,7 @@ cmd]), &#x27;instead&#x27;);
     <ul>
     <li>description and source-code<pre class="apidocCodePre">log = function () {
   var args = Array.prototype.slice.call(arguments, 0);
-  if (args.length &#x3e;= 2 &#x26;&#x26; args[1] instanceof Error) {
+  if (args.length &gt;= 2 &amp;&amp; args[1] instanceof Error) {
     args[1] = args[1].stack;
   }
   return oldLogFunc.apply(this, args);
@@ -1444,7 +1437,7 @@ The Firebase CLI can also be used programmatically as a standard Node module. Ea
  options object and returns a Promise. For example:
 
 ```js
-var client = require(&#x27;firebase-tools&#x27;);
+var client = require('firebase-tools');
 client.list().then(function(data) {
 console.<span class="apidocCodeKeywordSpan">log</span>(data);
 }).catch(function(err) {
@@ -1452,7 +1445,7 @@ console.<span class="apidocCodeKeywordSpan">log</span>(data);
 });
 
 client.deploy({
-project: &#x27;myfirebase&#x27;,
+project: 'myfirebase',
 token: process.env.FIREBASE_TOKEN,
 ...</pre></li>
     </ul>
@@ -1506,20 +1499,20 @@ token: process.env.FIREBASE_TOKEN,
   target.log.apply(target, args);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-module.exports = new Command(&#x27;help [command]&#x27;)
-.description(&#x27;display help information&#x27;)
+module.exports = new Command('help [command]')
+.description('display help information')
 .action(function(commandName) {
   var cmd = this.client.getCommand(commandName);
   if (cmd) {
     cmd.outputHelp();
   } else if (commandName) {
     logger.<span class="apidocCodeKeywordSpan">warn</span>();
-    utils.logWarning(chalk.bold(commandName) + &#x27; is not a valid command. See below for valid commands&#x27;);
+    utils.logWarning(chalk.bold(commandName) + ' is not a valid command. See below for valid commands');
     this.client.cli.outputHelp();
   } else {
     this.client.cli.outputHelp();
     logger.info();
-    logger.info(&#x27;  To get help with a specific command, type&#x27;, chalk.bold(&#x27;firebase help [command_name]&#x27;));
+    logger.info('  To get help with a specific command, type', chalk.bold('firebase help [command_name]'));
     logger.info();
 ...</pre></li>
     </ul>
@@ -1565,15 +1558,15 @@ module.exports = new Command(&#x27;help [command]&#x27;)
     <li>description and source-code<pre class="apidocCodePre">prompt = function (options, questions) {
   return new RSVP.Promise(function(resolve, reject) {
     var prompts = [];
-    for (var i = 0; i &#x3c; questions.length; i++) {
+    for (var i = 0; i &lt; questions.length; i++) {
       if (!options[questions[i].name]) {
         prompts.push(questions[i]);
       }
     }
 
-    if (prompts.length &#x26;&#x26; options.nonInteractive) {
-      return reject(new FirebaseError(&#x27;Missing required options (&#x27; + _.uniq(_.map(prompts, &#x27;name&#x27;)).join(&#x27;, &#x27;) + &#x27;) while running
- in non-interactive mode&#x27;, {
+    if (prompts.length &amp;&amp; options.nonInteractive) {
+      return reject(new FirebaseError('Missing required options (' + _.uniq(_.map(prompts, 'name')).join(', ') + ') while running
+ in non-interactive mode', {
         children: prompts,
         exit: 1
       }));
@@ -1588,9 +1581,9 @@ module.exports = new Command(&#x27;help [command]&#x27;)
   });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    if (prompts.length &#x26;&#x26; options.nonInteractive) {
-      return reject(new FirebaseError(&#x27;Missing required options (&#x27; + _.uniq(_.map(prompts, &#x27;name&#x27;)).join(&#x27
-;, &#x27;) + &#x27;) while running in non-interactive mode&#x27;, {
+    if (prompts.length &amp;&amp; options.nonInteractive) {
+      return reject(new FirebaseError('Missing required options (' + _.uniq(_.map(prompts, 'name')).join('
+;, ') + ') while running in non-interactive mode', {
         children: prompts,
         exit: 1
       }));
@@ -1626,9 +1619,9 @@ module.exports = new Command(&#x27;help [command]&#x27;)
   }
 
   return prompt(setup, [{
-    type: &#x27;checkbox&#x27;,
-    name: &#x27;features&#x27;,
-    message: &#x27;What Firebase CLI features do you want to setup for this directory?&#x27;,
+    type: 'checkbox',
+    name: 'features',
+    message: 'What Firebase CLI features do you want to setup for this directory?',
     choices: prompt.<span class="apidocCodeKeywordSpan">convertLabeledListChoices</span>(choices)
   }]);
 }).then(function() {
@@ -1650,15 +1643,15 @@ module.exports = new Command(&#x27;help [command]&#x27;)
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">listLabelToValue = function (label, choices) {
-  for (var i = 0; i &#x3c; choices.length; i++) {
+  for (var i = 0; i &lt; choices.length; i++) {
     if (choices[i].label === label) {
       return choices[i].name;
     }
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-    name: &#x27;features&#x27;,
-    message: &#x27;What Firebase CLI features do you want to setup for this directory?&#x27;,
+    name: 'features',
+    message: 'What Firebase CLI features do you want to setup for this directory?',
     choices: prompt.convertLabeledListChoices(choices)
   }]);
 }).then(function() {
@@ -1667,11 +1660,11 @@ module.exports = new Command(&#x27;help [command]&#x27;)
       return prompt.<span class="apidocCodeKeywordSpan">listLabelToValue</span>(feat, choices);
     });
   }
-  setup.features.unshift(&#x27;project&#x27;);
+  setup.features.unshift('project');
   return init(setup, config, options);
 }).then(function() {
   logger.info();
-  utils.logBullet(&#x27;Writing configuration info to &#x27; + chalk.bold(&#x27;firebase.json&#x27;) + &#x27;...&#x27;);
+  utils.logBullet('Writing configuration info to ' + chalk.bold('firebase.json') + '...');
 ...</pre></li>
     </ul>
 
@@ -1685,20 +1678,20 @@ module.exports = new Command(&#x27;help [command]&#x27;)
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">once = function (question) {
-  question.name = question.name || &#x27;question&#x27;;
+  question.name = question.name || 'question';
   return prompt({}, [question]).then(function(answers) { return answers[question.name]; });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  // {name: &#x27;storage&#x27;, label: &#x27;Storage: Deploy Firebase Storage Security Rules&#x27;, checked: true}
+  // {name: 'storage', label: 'Storage: Deploy Firebase Storage Security Rules', checked: true}
 ];
 
 var next;
 // HACK: Windows Node has issues with selectables as the first prompt, so we
 // add an extra confirmation prompt that fixes the problem
-if (process.platform === &#x27;win32&#x27;) {
+if (process.platform === 'win32') {
   next = prompt.<span class="apidocCodeKeywordSpan">once</span>({
-    type: &#x27;confirm&#x27;,
-    message: &#x27;Are you ready to proceed?&#x27;
+    type: 'confirm',
+    message: 'Are you ready to proceed?'
   });
 } else {
   next = RSVP.resolve(true);
@@ -1721,26 +1714,26 @@ if (process.platform === &#x27;win32&#x27;) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">addSubdomain = function (origin, subdomain) {
-  return origin.replace(&#x27;//&#x27;, &#x27;//&#x27; + subdomain + &#x27;.&#x27;);
+  return origin.replace('//', '//' + subdomain + '.');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  .option(&#x27;--equal-to &#x3c;val&#x3e;&#x27;, &#x27;restrict results to &#x3c;val&#x3e; (based on specified ordering)&#x27;)
+  .option('--equal-to &lt;val&gt;', 'restrict results to &lt;val&gt; (based on specified ordering)')
   .before(requireAccess)
   .action(function(path, options) {
-if (!_.startsWith(path, &#x27;/&#x27;)) {
-  return utils.reject(&#x27;Path must begin with /&#x27;, {exit: 1});
+if (!_.startsWith(path, '/')) {
+  return utils.reject('Path must begin with /', {exit: 1});
 }
 
-var url = utils.<span class="apidocCodeKeywordSpan">addSubdomain</span>(api.realtimeOrigin, options.instance) + path + &#x27;.json
-?&#x27;;
+var url = utils.<span class="apidocCodeKeywordSpan">addSubdomain</span>(api.realtimeOrigin, options.instance) + path + '.json
+?';
 var query = {};
-if (options.shallow) { query.shallow = &#x27;true&#x27;; }
-if (options.pretty) { query.print = &#x27;pretty&#x27;; }
-if (options.export) { query.format = &#x27;export&#x27;; }
-if (options.orderByKey) { options.orderBy = &#x27;$key&#x27;; }
-if (options.orderByValue) { options.orderBy = &#x27;$value&#x27;; }
-_applyStringOpts(query, options, [&#x27;limitToFirst&#x27;, &#x27;limitToLast&#x27;], [&#x27;orderBy&#x27;, &#x27;startAt&#x27;, &#
-x27;endAt&#x27;, &#x27;equalTo&#x27;]);
+if (options.shallow) { query.shallow = 'true'; }
+if (options.pretty) { query.print = 'pretty'; }
+if (options.export) { query.format = 'export'; }
+if (options.orderByKey) { options.orderBy = '$key'; }
+if (options.orderByValue) { options.orderBy = '$value'; }
+_applyStringOpts(query, options, ['limitToFirst', 'limitToLast'], ['orderBy', 'startAt', &amp;#
+x27;endAt', 'equalTo']);
 ...</pre></li>
     </ul>
 
@@ -1754,24 +1747,24 @@ x27;endAt&#x27;, &#x27;equalTo&#x27;]);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">consoleUrl = function (project, path) {
-  var api = require(&#x27;./api&#x27;);
-  return api.consoleOrigin + &#x27;/project/&#x27; + project + path;
+  var api = require('./api');
+  return api.consoleOrigin + '/project/' + project + path;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
     return reject(responseToError(res, body));
   }
 
-  if (!_.endsWith(path, &#x27;/&#x27;)) {
-    path += &#x27;/&#x27;;
+  if (!_.endsWith(path, '/')) {
+    path += '/';
   }
 
-  var consoleUrl = utils.<span class="apidocCodeKeywordSpan">consoleUrl</span>(options.project, &#x27;/database/data&#x27; + path
+  var consoleUrl = utils.<span class="apidocCodeKeywordSpan">consoleUrl</span>(options.project, '/database/data' + path
  + body.name);
   var refurl = utils.addSubdomain(api.realtimeOrigin, options.instance) + path + body.name;
 
-  utils.logSuccess(&#x27;Data pushed successfully&#x27;);
+  utils.logSuccess('Data pushed successfully');
   logger.info();
-  logger.info(chalk.bold(&#x27;View data at:&#x27;), consoleUrl);
+  logger.info(chalk.bold('View data at:'), consoleUrl);
   return resolve(new Firebase(refurl));
 }));
 ...</pre></li>
@@ -1787,7 +1780,7 @@ x27;endAt&#x27;, &#x27;equalTo&#x27;]);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">endpoint = function (parts) {
-  return &#x27;/&#x27; + _.join(parts, &#x27;/&#x27;);
+  return '/' + _.join(parts, '/');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1802,7 +1795,7 @@ x27;endAt&#x27;, &#x27;equalTo&#x27;]);
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">envOverride = function (envname, value, coerce) {
-  if (process.env[envname] &#x26;&#x26; process.env[envname].length) {
+  if (process.env[envname] &amp;&amp; process.env[envname].length) {
     if (coerce) {
       try {
         return coerce(process.env[envname], value);
@@ -1820,17 +1813,17 @@ return path;
 };
 
 var api = {
-// &#x22;In this context, the client secret is obviously not treated as a secret&#x22;
+// "In this context, the client secret is obviously not treated as a secret"
 // https://developers.google.com/identity/protocols/OAuth2InstalledApp
-clientId: utils.<span class="apidocCodeKeywordSpan">envOverride</span>(&#x27;FIREBASE_CLIENT_ID&#x27;, &#x27;563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6
-.apps.googleusercontent.com&#x27;),
-clientSecret: utils.envOverride(&#x27;FIREBASE_CLIENT_SECRET&#x27;, &#x27;j9iVZfS8kkCEFUPaAeJV0sAi&#x27;),
-cloudloggingOrigin: utils.envOverride(&#x27;FIREBASE_CLOUDLOGGING_URL&#x27;, &#x27;https://logging.googleapis.com&#x27;),
-adminOrigin: utils.envOverride(&#x27;FIREBASE_ADMIN_URL&#x27;, &#x27;https://admin.firebase.com&#x27;),
-apikeysOrigin: utils.envOverride(&#x27;FIREBASE_APIKEYS_URL&#x27;, &#x27;https://apikeys.googleapis.com&#x27;),
-appengineOrigin: utils.envOverride(&#x27;FIREBASE_APPENGINE_URL&#x27;, &#x27;https://appengine.googleapis.com&#x27;),
-authOrigin: utils.envOverride(&#x27;FIREBASE_AUTH_URL&#x27;, &#x27;https://accounts.google.com&#x27;),
-consoleOrigin: utils.envOverride(&#x27;FIREBASE_CONSOLE_URL&#x27;, &#x27;https://console.firebase.google.com&#x27;),
+clientId: utils.<span class="apidocCodeKeywordSpan">envOverride</span>('FIREBASE_CLIENT_ID', '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6
+.apps.googleusercontent.com'),
+clientSecret: utils.envOverride('FIREBASE_CLIENT_SECRET', 'j9iVZfS8kkCEFUPaAeJV0sAi'),
+cloudloggingOrigin: utils.envOverride('FIREBASE_CLOUDLOGGING_URL', 'https://logging.googleapis.com'),
+adminOrigin: utils.envOverride('FIREBASE_ADMIN_URL', 'https://admin.firebase.com'),
+apikeysOrigin: utils.envOverride('FIREBASE_APIKEYS_URL', 'https://apikeys.googleapis.com'),
+appengineOrigin: utils.envOverride('FIREBASE_APPENGINE_URL', 'https://appengine.googleapis.com'),
+authOrigin: utils.envOverride('FIREBASE_AUTH_URL', 'https://accounts.google.com'),
+consoleOrigin: utils.envOverride('FIREBASE_CONSOLE_URL', 'https://console.firebase.google.com'),
 ...</pre></li>
     </ul>
 
@@ -1845,20 +1838,20 @@ consoleOrigin: utils.envOverride(&#x27;FIREBASE_CONSOLE_URL&#x27;, &#x27;https:/
     <ul>
     <li>description and source-code<pre class="apidocCodePre">explainStdin = function () {
   if (isWindows) {
-    throw new FirebaseError(&#x27;STDIN input is not available on Windows.&#x27;, {exit: 1});
+    throw new FirebaseError('STDIN input is not available on Windows.', {exit: 1});
   }
   if (process.stdin.isTTY) {
-    logger.info(chalk.bold(&#x27;Note:&#x27;), &#x27;Reading STDIN. Type JSON data and then press Ctrl-D&#x27;);
+    logger.info(chalk.bold('Note:'), 'Reading STDIN. Type JSON data and then press Ctrl-D');
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  return utils.reject(&#x27;Path must begin with /&#x27;, {exit: 1});
+  return utils.reject('Path must begin with /', {exit: 1});
 }
 
 var inStream = utils.stringToStream(options.data) || (infile ? fs.createReadStream(infile) : process.stdin);
-var url = utils.addSubdomain(api.realtimeOrigin, options.instance) + path + &#x27;.json?&#x27;;
+var url = utils.addSubdomain(api.realtimeOrigin, options.instance) + path + '.json?';
 
-if (!infile &#x26;&#x26; !options.data) {
+if (!infile &amp;&amp; !options.data) {
   utils.<span class="apidocCodeKeywordSpan">explainStdin</span>();
 }
 
@@ -1889,13 +1882,13 @@ var reqOptions = {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-module.exports = new Command(&#x27;logout&#x27;)
-.description(&#x27;log the CLI out of Firebase&#x27;)
+module.exports = new Command('logout')
+.description('log the CLI out of Firebase')
 .action(function(options) {
-  var user = configstore.get(&#x27;user&#x27;);
-  var tokens = configstore.get(&#x27;tokens&#x27;);
-  var currentToken = _.get(tokens, &#x27;refresh_token&#x27;);
-  var token = utils.<span class="apidocCodeKeywordSpan">getInheritedOption</span>(options, &#x27;token&#x27;) || currentToken;
+  var user = configstore.get('user');
+  var tokens = configstore.get('tokens');
+  var currentToken = _.get(tokens, 'refresh_token');
+  var token = utils.<span class="apidocCodeKeywordSpan">getInheritedOption</span>(options, 'token') || currentToken;
   api.setToken(token);
   var next;
   if (token) {
@@ -1916,24 +1909,24 @@ module.exports = new Command(&#x27;logout&#x27;)
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">logBullet = function (message, type) {
-  type = type || &#x27;info&#x27;;
-  logger[type](chalk.cyan.bold(&#x27;i &#x27;), message);
+  type = type || 'info';
+  logger[type](chalk.cyan.bold('i '), message);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
     return prompt.listLabelToValue(feat, choices);
   });
 }
-setup.features.unshift(&#x27;project&#x27;);
+setup.features.unshift('project');
 return init(setup, config, options);
     }).then(function() {
 logger.info();
-utils.<span class="apidocCodeKeywordSpan">logBullet</span>(&#x27;Writing configuration info to &#x27; + chalk.bold(&#x27;firebase
-.json&#x27;) + &#x27;...&#x27;);
-config.writeProjectFile(&#x27;firebase.json&#x27;, setup.config);
-utils.logBullet(&#x27;Writing project information to &#x27; + chalk.bold(&#x27;.firebaserc&#x27;) + &#x27;...&#x27;);
-config.writeProjectFile(&#x27;.firebaserc&#x27;, setup.rcfile);
+utils.<span class="apidocCodeKeywordSpan">logBullet</span>('Writing configuration info to ' + chalk.bold('firebase
+.json') + '...');
+config.writeProjectFile('firebase.json', setup.config);
+utils.logBullet('Writing project information to ' + chalk.bold('.firebaserc') + '...');
+config.writeProjectFile('.firebaserc', setup.rcfile);
 logger.info();
-utils.logSuccess(&#x27;Firebase initialization complete!&#x27;);
+utils.logSuccess('Firebase initialization complete!');
 
 if (setup.createProject) {
 ...</pre></li>
@@ -1949,21 +1942,21 @@ if (setup.createProject) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">logSuccess = function (message, type) {
-  type = type || &#x27;info&#x27;;
-  var chr = isWindows ? &#x27;+&#x27; : &#x27;✔&#x27;;
-  logger[type](chalk.green(chr + &#x27; &#x27;), message);
+  type = type || 'info';
+  var chr = isWindows ? '+' : 'âœ”';
+  logger[type](chalk.green(chr + ' '), message);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-        if (!_.endsWith(path, &#x27;/&#x27;)) {
-          path += &#x27;/&#x27;;
+        if (!_.endsWith(path, '/')) {
+          path += '/';
         }
 
-        var consoleUrl = utils.consoleUrl(options.project, &#x27;/database/data&#x27; + path + body.name);
+        var consoleUrl = utils.consoleUrl(options.project, '/database/data' + path + body.name);
         var refurl = utils.addSubdomain(api.realtimeOrigin, options.instance) + path + body.name;
 
-        utils.<span class="apidocCodeKeywordSpan">logSuccess</span>(&#x27;Data pushed successfully&#x27;);
+        utils.<span class="apidocCodeKeywordSpan">logSuccess</span>('Data pushed successfully');
         logger.info();
-        logger.info(chalk.bold(&#x27;View data at:&#x27;), consoleUrl);
+        logger.info(chalk.bold('View data at:'), consoleUrl);
         return resolve(new Firebase(refurl));
       }));
     });
@@ -1982,21 +1975,21 @@ if (setup.createProject) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">logWarning = function (message, type) {
-  type = type || &#x27;warn&#x27;;
-  var chr = isWindows ? &#x27;!&#x27; : &#x27;⚠&#x27;;
-  logger[type](chalk.yellow.bold(chr + &#x27; &#x27;), message);
+  type = type || 'warn';
+  var chr = isWindows ? '!' : 'âš&nbsp;';
+  logger[type](chalk.yellow.bold(chr + ' '), message);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
   return acquireRefs(options, [scopes.CLOUD_PLATFORM])
     .catch(function(err) {
-      if (options.config.has(&#x27;functions&#x27;)) {
+      if (options.config.has('functions')) {
         throw err;
       }
 
       logger.info();
-      utils.<span class="apidocCodeKeywordSpan">logWarning</span>(chalk.bold(&#x27;Your CLI authentication needs to be updated to
- take advantage of new features.&#x27;));
-      utils.logWarning(chalk.bold(&#x27;Please run &#x27; + chalk.underline(&#x27;firebase login --reauth&#x27;)));
+      utils.<span class="apidocCodeKeywordSpan">logWarning</span>(chalk.bold('Your CLI authentication needs to be updated to
+ take advantage of new features.'));
+      utils.logWarning(chalk.bold('Please run ' + chalk.underline('firebase login --reauth')));
       logger.info();
 
       return acquireRefs(options, []);
@@ -2016,28 +2009,28 @@ if (setup.createProject) {
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">makeActiveProject = function (projectDir, newActive) {
-  var activeProjects = configstore.get(&#x27;activeProjects&#x27;) || {};
+  var activeProjects = configstore.get('activeProjects') || {};
   if (newActive) {
     activeProjects[projectDir] = newActive;
   } else {
     _.unset(activeProjects, projectDir);
   }
 
-  configstore.set(&#x27;activeProjects&#x27;, activeProjects);
+  configstore.set('activeProjects', activeProjects);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
   return next.then(function(confirmed) {
     if (confirmed) {
-      options.config.writeProjectFile(&#x27;firebase.json&#x27;, out);
-      utils.logSuccess(&#x27;Migrated &#x27; + chalk.bold(&#x27;firebase.json&#x27;) + &#x27; successfully&#x27;);
+      options.config.writeProjectFile('firebase.json', out);
+      utils.logSuccess('Migrated ' + chalk.bold('firebase.json') + ' successfully');
       if (projectId) {
-        options.config.writeProjectFile(&#x27;.firebaserc&#x27;, rcfile);
+        options.config.writeProjectFile('.firebaserc', rcfile);
         utils.<span class="apidocCodeKeywordSpan">makeActiveProject</span>(options.projectRoot, projectId);
-        utils.logSuccess(&#x27;Set default project to &#x27; + chalk.bold(projectId));
+        utils.logSuccess('Set default project to ' + chalk.bold(projectId));
       }
     } else {
-      return utils.reject(&#x27;Migration aborted by user.&#x27;, {exit: 1});
+      return utils.reject('Migration aborted by user.', {exit: 1});
     }
   });
 });
@@ -2063,12 +2056,12 @@ if (!checkRes.valid) {
 }
 var hashOptions = checkRes;
 
-if (!_.endsWith(dataFile, &#x27;.csv&#x27;) &#x26;&#x26; !_.endsWith(dataFile, &#x27;.json&#x27;)) {
-  return utils.<span class="apidocCodeKeywordSpan">reject</span>(&#x27;Data file must end with .csv or .json&#x27;, {exit: 1});
+if (!_.endsWith(dataFile, '.csv') &amp;&amp; !_.endsWith(dataFile, '.json')) {
+  return utils.<span class="apidocCodeKeywordSpan">reject</span>('Data file must end with .csv or .json', {exit: 1});
 }
 var stats = fs.statSync(dataFile);
 var fileSizeInBytes = stats.size;
-logger.info(&#x27;Processing &#x27; + chalk.bold(dataFile) + &#x27; (&#x27; + fileSizeInBytes + &#x27; bytes)&#x27;);
+logger.info('Processing ' + chalk.bold(dataFile) + ' (' + fileSizeInBytes + ' bytes)');
 
 var inStream = fs.createReadStream(dataFile);
 var batches = [];
@@ -2094,18 +2087,18 @@ var batches = [];
   return s;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  .option(&#x27;-d, --data &#x3c;data&#x3e;&#x27;, &#x27;specify escaped JSON directly&#x27;)
+  .option('-d, --data &lt;data&gt;', 'specify escaped JSON directly')
   .before(requireAccess)
   .action(function(path, infile, options) {
-if (!_.startsWith(path, &#x27;/&#x27;)) {
-  return utils.reject(&#x27;Path must begin with /&#x27;, {exit: 1});
+if (!_.startsWith(path, '/')) {
+  return utils.reject('Path must begin with /', {exit: 1});
 }
 
 var inStream = utils.<span class="apidocCodeKeywordSpan">stringToStream</span>(options.data) || (infile ? fs.createReadStream(infile
 ) : process.stdin);
-var url = utils.addSubdomain(api.realtimeOrigin, options.instance) + path + &#x27;.json?&#x27;;
+var url = utils.addSubdomain(api.realtimeOrigin, options.instance) + path + '.json?';
 
-if (!infile &#x26;&#x26; !options.data) {
+if (!infile &amp;&amp; !options.data) {
   utils.explainStdin();
 }
 
@@ -2122,3 +2115,4 @@ var reqOptions = {
     ]
 </div>
 </div>
+</body></html>
